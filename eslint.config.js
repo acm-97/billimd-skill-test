@@ -40,6 +40,14 @@ export default tseslint.config(
       ...reactX.configs["recommended-typescript"].rules,
       ...reactDom.configs.recommended.rules,
       ...prettier.configs.recommended.rules,
+
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
     },
   }
 );

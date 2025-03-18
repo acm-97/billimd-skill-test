@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {JsonEditor} from 'json-edit-react'
 import {Input} from '@/components/ui/input'
 import {Checkbox} from '@/components/ui/checkbox'
@@ -24,6 +24,7 @@ import {z} from 'zod'
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '../ui/form'
 import {Switch} from '../ui/switch'
 import {SheetClose, SheetFooter} from '../ui/sheet'
+import autoAnimate from '@formkit/auto-animate'
 
 interface FieldsConstructorProps {
   jsonData: FieldsType
@@ -49,6 +50,15 @@ export default function FieldsConstructor({
 }: FieldsConstructorProps) {
   const [newJson, setNewJson] = useState(jsonData)
   const [isJsonView, setIsJsonView] = useState<boolean>(false)
+  const currentFieldsRef = useRef(null)
+  const optionsFieldsRef = useRef(null)
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    currentFieldsRef.current && autoAnimate(currentFieldsRef.current)
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    optionsFieldsRef.current && autoAnimate(optionsFieldsRef.current)
+  }, [optionsFieldsRef, currentFieldsRef])
 
   const defaultValues = {
     label: '',
@@ -136,7 +146,7 @@ export default function FieldsConstructor({
                     {jsonData?.fields?.length > 0 && (
                       <div>
                         <Label className="mb-3 font-semibold">Current Fields</Label>
-                        <div className="ml-4">
+                        <div className="ml-4" ref={currentFieldsRef}>
                           {jsonData.fields.map(field => (
                             <div
                               className="flex items-center gap-2 justify-between"
@@ -243,32 +253,33 @@ export default function FieldsConstructor({
                             form.formState.isSubmitted && (
                               <span className="text-destructive">Provide minimum 1 option</span>
                             )}
-                          <div className="space-y-2">
+                          <div className="space-y-2" ref={optionsFieldsRef}>
                             {optionsField.map((option, index) => (
-                              <FormField
-                                key={option.id}
-                                control={form.control}
-                                name={`options.${index}`}
-                                render={({field}) => (
-                                  <FormItem>
-                                    <FormControl>
-                                      <div className="flex items-center space-x-2">
-                                        <Input placeholder={`Option ${index + 1}`} {...field} />
-                                        <Button
-                                          type="button"
-                                          variant="ghost"
-                                          size="icon"
-                                          className="h-8 w-8"
-                                          onClick={() => remove(index)}
-                                        >
-                                          <Trash className="h-4 w-4" />
-                                        </Button>
-                                      </div>
-                                    </FormControl>
-                                    <FormMessage />
-                                  </FormItem>
-                                )}
-                              />
+                              <div key={option.id}>
+                                <FormField
+                                  control={form.control}
+                                  name={`options.${index}`}
+                                  render={({field}) => (
+                                    <FormItem>
+                                      <FormControl>
+                                        <div className="flex items-center space-x-2">
+                                          <Input placeholder={`Option ${index + 1}`} {...field} />
+                                          <Button
+                                            type="button"
+                                            variant="ghost"
+                                            size="icon"
+                                            className="h-8 w-8"
+                                            onClick={() => remove(index)}
+                                          >
+                                            <Trash className="h-4 w-4" />
+                                          </Button>
+                                        </div>
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />{' '}
+                              </div>
                             ))}
                           </div>
                           <Button

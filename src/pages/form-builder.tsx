@@ -162,7 +162,7 @@ export default function FormBuilder() {
   }
 
   return (
-    <div className="p-6 flex flex-col gap-8">
+    <div className="px-6 pt-6 flex flex-col gap-8">
       <div className="w-full space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Form Builder</h1>
         <p className="text-muted-foreground">

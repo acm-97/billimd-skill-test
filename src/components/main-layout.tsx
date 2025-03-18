@@ -11,9 +11,9 @@ import {Toaster} from './ui/sonner'
 
 export default function MainLayout() {
   return (
-    <main className="flex h-screen w-screen justify-center overflow-x-hidden">
-      <div className="w-full max-w-screen-2xl">
-        <header className="flex items-center justify-between py-4 px-6 shadow-md gap-4">
+    <div className="flex h-screen w-screen justify-center overflow-x-hidden  bg-secondary">
+      <div className="w-full">
+        <header className="flex items-center justify-between py-4 px-6 shadow-md gap-4 bg-card">
           <div className="flex items-center gap-4">
             <img src={Logo} alt="logo" className="h-6 w-auto" />
             <span className="text-accent-foreground font-extrabold text-lg italic">SkillTest</span>
@@ -44,9 +44,11 @@ export default function MainLayout() {
             </NavigationMenuList>
           </NavigationMenu>
         </header>
-        <Outlet />
+        <main className="w-full max-w-screen-2xl">
+          <Outlet />
+        </main>
         <Toaster />
       </div>
-    </main>
+    </div>
   )
 }

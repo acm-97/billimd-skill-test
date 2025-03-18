@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# BilliMD Skill Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalistic modern React application built with TypeScript, Vite, React Router, and TailwindCSS.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a web application that includes:
+- Dashboard visualization
+- Form builder interface
+- User management with data loading
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (v18 or higher recommended)
+- pnpm (recommended) or npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [repository-url]
+cd billimd-skill-test
+
+# Install dependencies
+pnpm install
+# or with npm
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running the Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Start the development server
+pnpm dev
+# or with npm
+npm run dev
 ```
+
+Navigate to `http://localhost:5173` in your browser to view the application.
+
+### Building for Production
+
+```bash
+# Build the project
+pnpm build
+# or with npm
+npm run build
+
+# Preview the production build locally
+pnpm preview
+# or with npm
+npm run preview
+```
+
+## Design Choices
+
+- **React 19**: Using the latest React version for improved performance and features
+- **TypeScript**: For type safety and better developer experience
+- **Vite**: Fast development environment and optimized production builds
+- **TailwindCSS**: Utility-first CSS framework for rapid UI development
+- **React Router**: For client-side routing with nested routes
+- **React Query**: For efficient data fetching and state management
+- **Radix UI**: For accessible and composable UI components
+- **Dark/Light Theme**: Implemented using next-themes with system preference detection
+
+## Project Structure
+
+- `src/components`: Reusable UI components
+- `src/pages`: Application pages corresponding to routes
+- `src/lib`: Utility functions and custom hooks
+- `src/assets`: Static assets like images and icons
+
+## Deployment
+
+This project is configured for deployment on Vercel, with configuration in `vercel.json`.

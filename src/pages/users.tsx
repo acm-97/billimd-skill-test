@@ -32,12 +32,14 @@ import {Checkbox} from '@/components/ui/checkbox'
 import Loader from '@/components/loader'
 import DashboardStats from '@/components/users/dashboard-stats'
 
-const usersQuery = () =>
+const usersQuery = ({page = 1, seed = 'abc'}: {page?: number; seed?: string}) =>
   queryOptions({
-    queryKey: ['users'],
+    queryKey: ['users', page, seed],
     queryFn: async () => {
       try {
-        const users = await axios.get('https://randomuser.me/api/?results=100&exc=login,cell')
+        const users = await axios.get(
+          `https://randomuser.me/api/?page=${page}&results=5&seed=${seed}&exc=login,cell`,
+        )
         if (!users) {
           // eslint-disable-next-line @typescript-eslint/only-throw-error
           throw new Response('', {
@@ -54,7 +56,7 @@ const usersQuery = () =>
   })
 
 export const loader = (queryClient: QueryClient) => async () => {
-  await queryClient.ensureQueryData(usersQuery())
+  await queryClient.ensureQueryData(usersQuery({}))
   return {}
 }
 
@@ -172,7 +174,8 @@ const useColumns = (setUserData: React.Dispatch<React.SetStateAction<User[]>>) =
 
 export default function Users() {
   const [userData, setUserData] = React.useState<User[]>([])
-  const {data, isLoading} = useSuspenseQuery(usersQuery())
+  const [page, setPage] = React.useState(1)
+  const {data, isLoading} = useSuspenseQuery(usersQuery({page}))
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
@@ -195,10 +198,10 @@ export default function Users() {
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     initialState: {
-      pagination: {
-        pageSize: 5,
-        pageIndex: 1,
-      },
+      // pagination: {
+      //   pageSize: 5,
+      //   pageIndex: 1,
+      // },
     },
     state: {
       sorting,
@@ -210,7 +213,6 @@ export default function Users() {
 
   const debounceFilterValue = useDebouncedCallback((value: string) => {
     table.getColumn('email')?.setFilterValue(value)
-    console.log(value)
   }, 500)
 
   return (
@@ -308,25 +310,18 @@ export default function Users() {
         </div>
         <div className="flex items-center justify-between space-x-2 py-4 border-t">
           <div className="text-muted-foreground text-sm">
-            Showing page{' '}
-            <span className="font-semibold">{table.getState().pagination.pageIndex} of </span>
-            <span className="font-extrabold">{table.getPageCount()}</span> pages
+            Showing page <span className="font-extrabold">{page}</span>
           </div>
           <div className="space-x-2">
             <Button
               variant="outline"
               size="sm"
-              onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
             >
               Previous
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.nextPage()}
-              disabled={!table.getCanNextPage()}
-            >
+            <Button variant="outline" size="sm" onClick={() => setPage(page + 1)}>
               Next
             </Button>
           </div>

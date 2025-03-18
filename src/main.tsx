@@ -7,6 +7,7 @@ import FormBuilder from './pages/form-builder'
 import Users, {loader as usersLoader} from './pages/users'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import Dashboard from './pages/dashboard'
+import {ThemeProvider} from './components/theme-provider'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,18 +19,20 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="form-builder" element={<FormBuilder />} />
-            <Route path="users" element={<Users />} loader={usersLoader(queryClient)} />
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </QueryClientProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="form-builder" element={<FormBuilder />} />
+              <Route path="users" element={<Users />} loader={usersLoader(queryClient)} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </ThemeProvider>
   )
 }
 

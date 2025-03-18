@@ -179,7 +179,6 @@ export default function Users() {
   const [rowSelection, setRowSelection] = React.useState({})
 
   React.useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     if (data?.results) setUserData(data.results)
   }, [data])
   const {columns} = useColumns(setUserData)
@@ -226,7 +225,7 @@ export default function Users() {
             <Input
               placeholder="Filter emails..."
               onChange={event => debounceFilterValue(event.target.value)}
-              className="min-w-md max-w-md"
+              className="md:min-w-md max-w-md"
             />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -254,7 +253,7 @@ export default function Users() {
             </DropdownMenu>
           </div>
           <Button>
-            <Plus /> Add User
+            <Plus /> <span className="hidden md:inline">Add User</span>
           </Button>
         </div>
         <div>

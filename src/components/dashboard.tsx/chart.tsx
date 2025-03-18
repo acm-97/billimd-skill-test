@@ -58,13 +58,7 @@ export function CryptoChart() {
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="hsl(var(--primary))"
-                  fillOpacity={1}
-                  fill="url(#colorPrice)"
-                />
+                <Area type="monotone" dataKey="price" fillOpacity={1} fill="url(#colorPrice)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -100,13 +94,7 @@ export function CryptoChart() {
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="hsl(var(--primary))"
-                  fillOpacity={1}
-                  fill="url(#colorPrice)"
-                />
+                <Area type="monotone" dataKey="price" fillOpacity={1} fill="url(#colorPrice)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -142,13 +130,7 @@ export function CryptoChart() {
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="hsl(var(--primary))"
-                  fillOpacity={1}
-                  fill="url(#colorPrice)"
-                />
+                <Area type="monotone" dataKey="price" fillOpacity={1} fill="url(#colorPrice)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -184,13 +166,7 @@ export function CryptoChart() {
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
-                <Area
-                  type="monotone"
-                  dataKey="price"
-                  stroke="hsl(var(--primary))"
-                  fillOpacity={1}
-                  fill="url(#colorPrice)"
-                />
+                <Area type="monotone" dataKey="price" fillOpacity={1} fill="url(#colorPrice)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>

@@ -21,7 +21,7 @@ export default function MainLayout() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link to="/dashboard">
+                <Link to="/">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Dashboard
                   </NavigationMenuLink>

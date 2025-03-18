@@ -30,7 +30,7 @@ export function CryptoChart() {
         <TabsContent value="24h" className="mt-4">
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData.slice(-24)} margin={{bottom: 30}}>
+              <AreaChart data={chartData.slice(-24)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
@@ -73,7 +73,7 @@ export function CryptoChart() {
         <TabsContent value="7d" className="mt-4">
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData.slice(-7)} margin={{bottom: 30}}>
+              <AreaChart data={chartData.slice(-7)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
@@ -115,7 +115,7 @@ export function CryptoChart() {
         <TabsContent value="30d" className="mt-4">
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData.slice(-30)} margin={{bottom: 30}}>
+              <AreaChart data={chartData.slice(-30)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
@@ -157,7 +157,7 @@ export function CryptoChart() {
         <TabsContent value="90d" className="mt-4">
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData} margin={{bottom: 30}}>
+              <AreaChart data={chartData} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />

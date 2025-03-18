@@ -109,6 +109,8 @@ const useColumns = (setUserData: React.Dispatch<React.SetStateAction<User[]>>) =
           </div>
         )
       },
+      // @ts-ignore
+      width: 200,
     },
     {
       accessorKey: 'email',
@@ -124,6 +126,8 @@ const useColumns = (setUserData: React.Dispatch<React.SetStateAction<User[]>>) =
         )
       },
       cell: ({row}) => <div className="lowercase">{row.getValue('email')}</div>,
+      // @ts-ignore
+      width: 300,
     },
     {
       accessorKey: 'phone',
@@ -138,6 +142,8 @@ const useColumns = (setUserData: React.Dispatch<React.SetStateAction<User[]>>) =
           </Button>
         )
       },
+      // @ts-ignore
+      width: 200,
     },
     {
       id: 'actions',
@@ -258,7 +264,7 @@ export default function Users() {
             <Plus /> <span className="hidden md:inline">Add User</span>
           </Button>
         </div>
-        <div>
+        <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map(headerGroup => (
@@ -292,7 +298,15 @@ export default function Users() {
                     className="h-[4.5rem]"
                   >
                     {row.getVisibleCells().map(cell => (
-                      <TableCell key={cell.id}>
+                      <TableCell
+                        key={cell.id}
+                        style={{
+                          // @ts-ignore
+                          width: cell.column.columnDef.width,
+                          // @ts-ignore
+                          minWidth: cell.column.columnDef.width,
+                        }}
+                      >
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))}

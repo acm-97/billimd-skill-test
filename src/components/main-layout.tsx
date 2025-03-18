@@ -5,7 +5,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import Logo from '@/assets/react.svg'
+import Logo from '@/assets/crypto.svg'
 import {Link, Outlet} from 'react-router-dom'
 import {Toaster} from './ui/sonner'
 import {Github, Menu, Moon, Sun} from 'lucide-react'
@@ -45,7 +45,9 @@ export default function MainLayout() {
       <header className="w-full flex items-center justify-between py-4 px-6 shadow-md gap-4 bg-card">
         <div className="flex items-center gap-4">
           <img src={Logo} alt="logo" className="h-6 w-auto" />
-          <span className="text-accent-foreground font-extrabold text-lg italic">SkillTest</span>
+          <span className="text-accent-foreground font-extrabold text-lg italic">
+            CryptoTracker
+          </span>
         </div>
         <NavigationMenu>
           <NavigationMenuList>
@@ -73,7 +75,7 @@ export default function MainLayout() {
                   <div className="flex items-center gap-4">
                     <img src={Logo} alt="logo" className="h-6 w-auto" />
                     <span className="text-accent-foreground font-extrabold text-lg italic">
-                      SkillTest
+                      CryptoTracker
                     </span>
                   </div>
 

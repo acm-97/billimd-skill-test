@@ -222,7 +222,7 @@ export default function Users() {
   }, 500)
 
   return (
-    <div className="w-full px-6 pt-6">
+    <div className="w-full p-6">
       <div className="mb-8">
         <h2 className="text-2xl font-bold tracking-tight mb-6">User Management</h2>
         <DashboardStats />

@@ -5,16 +5,15 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import Logo from '@/assets/crypto.svg'
 import {Link, Outlet} from 'react-router-dom'
 import {Toaster} from './ui/sonner'
 import {Github, Menu, Moon, Sun} from 'lucide-react'
 import {useTheme} from './theme-provider'
 import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
+import {CryptoLogo} from './logo'
 
 export default function MainLayout() {
   const {theme, setTheme} = useTheme()
-  console.log('🚀 ~ MainLayout ~ theme:', theme)
 
   const navItems = ({className = ''}: {className?: string}) => (
     <>
@@ -44,7 +43,7 @@ export default function MainLayout() {
     <div className="flex h-screen w-screen items-center overflow-x-hidden  bg-secondary flex-col">
       <header className="w-full flex items-center justify-between py-4 px-6 shadow-md gap-4 bg-card">
         <div className="flex items-center gap-4">
-          <img src={Logo} alt="logo" className="h-6 w-auto" />
+          <CryptoLogo size={32} />
           <span className="text-accent-foreground font-extrabold text-lg italic">
             CryptoTracker
           </span>
@@ -73,7 +72,7 @@ export default function MainLayout() {
                 </SheetTrigger>
                 <SheetContent className="w-[250px] p-4 pt-10" side="left">
                   <div className="flex items-center gap-4">
-                    <img src={Logo} alt="logo" className="h-6 w-auto" />
+                    <CryptoLogo className="h-6 w-auto" />
                     <span className="text-accent-foreground font-extrabold text-lg italic">
                       CryptoTracker
                     </span>

@@ -30,7 +30,7 @@ export const loader = (queryClient: QueryClient) => async () => {
 
 export default function Dashboard() {
   return (
-    <div className="px-6 pt-6">
+    <div className="p-6">
       <CryptoCards />
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Bitcoin Price History</h2>

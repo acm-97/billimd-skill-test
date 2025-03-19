@@ -33,8 +33,8 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
               <AreaChart data={chartData.slice(-24)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis
@@ -55,6 +55,10 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
                 />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)',
+                  }}
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
@@ -70,8 +74,8 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
               <AreaChart data={chartData.slice(-7)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis
@@ -91,6 +95,10 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
                 />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)',
+                  }}
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
@@ -106,8 +114,8 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
               <AreaChart data={chartData.slice(-30)} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis
@@ -127,6 +135,10 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
                 />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)',
+                  }}
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />
@@ -142,8 +154,8 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
               <AreaChart data={chartData} margin={{bottom: 30, right: 30}}>
                 <defs>
                   <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis
@@ -163,6 +175,10 @@ export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
                 />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)',
+                  }}
                   formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
                   labelFormatter={(label: string) => `Date: ${label}`}
                 />

@@ -83,6 +83,8 @@ const useColumns = (setUserData: React.Dispatch<React.SetStateAction<User[]>>) =
       ),
       enableSorting: false,
       enableHiding: false,
+      // @ts-ignore
+      width: 50,
     },
     {
       accessorKey: 'name',
@@ -301,8 +303,6 @@ export default function Users() {
                       <TableCell
                         key={cell.id}
                         style={{
-                          // @ts-ignore
-                          width: cell.column.columnDef.width,
                           // @ts-ignore
                           minWidth: cell.column.columnDef.width,
                         }}

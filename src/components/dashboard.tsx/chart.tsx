@@ -5,8 +5,8 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {useSuspenseQuery} from '@tanstack/react-query'
 import {cryptoHistoryQuery} from '@/pages/dashboard'
 
-export function CryptoChart() {
-  const {data, error} = useSuspenseQuery(cryptoHistoryQuery())
+export function CryptoChart({selectedCripto}: {selectedCripto: string}) {
+  const {data, error} = useSuspenseQuery(cryptoHistoryQuery(selectedCripto))
   const [, setTimeframe] = useState('7d')
 
   // Format the data for the chart

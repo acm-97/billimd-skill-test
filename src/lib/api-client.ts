@@ -15,17 +15,34 @@ const _api = axios.create({
 
 export const api = _api
 
+export const errorProps = {
+  style: {
+    background: 'var(--destructive)',
+    color: 'var(--accent)',
+  },
+}
+
+export const successProps = {
+  style: {
+    background: '#008000',
+    color: 'var(--accent)',
+  },
+}
+
 _api.interceptors.response.use(
   (config: any) => {
     return config
   },
   (e: any) => {
     if (e.response?.status === 429) {
-      toast.error('Seam you have made too many requests. Please try again in a few minutes')
+      toast.error(
+        'Seam you have made too many requests. Please try again in a few minutes',
+        errorProps,
+      )
       return
     }
 
-    toast.error(e.message || 'Something went went wrong')
+    toast.error(e.message || 'Something went went wrong', errorProps)
 
     // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
     return Promise.reject(e)

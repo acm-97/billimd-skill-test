@@ -15,6 +15,7 @@ import {Button} from '@/components/ui/button'
 import {Save} from 'lucide-react'
 import FieldsConstructor from '@/components/form-builder/field-constructor'
 import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
+import {successProps} from '@/lib/api-client'
 
 export type FieldType = {
   label: string
@@ -157,7 +158,7 @@ export default function FormBuilder() {
       }
     })
     if (hasErrors) return
-    toast.success('Form saved successfully')
+    toast.success('Form saved successfully', successProps)
     getInitialFormState()
   }
 

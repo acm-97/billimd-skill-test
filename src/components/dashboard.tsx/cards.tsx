@@ -7,7 +7,11 @@ import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components
 import {useSuspenseQuery} from '@tanstack/react-query'
 import {cryptoQuery} from '@/pages/dashboard'
 
-export function CryptoCards() {
+export function CryptoCards({
+  setSelectedCrypto,
+}: {
+  setSelectedCrypto: React.Dispatch<React.SetStateAction<string>>
+}) {
   const {data, refetch, isLoading, error} = useSuspenseQuery(cryptoQuery())
   const [lastUpdated, setLastUpdated] = useState(new Date())
 
@@ -36,7 +40,11 @@ export function CryptoCards() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <Fade cascade>
           {data.map(crypto => (
-            <Card key={crypto.id} className="overflow-hidden">
+            <Card
+              key={crypto.id}
+              className="overflow-hidden cursor-pointer transition delay-150 duration-300 ease-in-out hover:scale-95"
+              onClick={() => setSelectedCrypto(crypto.id)}
+            >
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">

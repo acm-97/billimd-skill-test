@@ -202,7 +202,6 @@ export default function FieldsConstructor({
                                 <SelectItem value="checkbox">Checkbox</SelectItem>
                                 <SelectItem value="radio">Radio</SelectItem>
                                 <SelectItem value="dropdown">Dropdown</SelectItem>
-                                <SelectItem value="textarea">Text Area</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormControl>

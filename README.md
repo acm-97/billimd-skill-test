@@ -5,9 +5,10 @@ A minimalistic modern React application built with TypeScript, Vite, React Route
 ## Project Overview
 
 This project is a web application that includes:
-- Dashboard visualization
-- Form builder interface
-- User management with data loading
+
+- A simple dashboard with API data
+- A dynamic form builder
+- A paginated and searchable data table
 
 ## Getting Started
 

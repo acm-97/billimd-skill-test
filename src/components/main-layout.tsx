@@ -40,8 +40,8 @@ export default function MainLayout() {
   )
 
   return (
-    <div className="flex h-screen w-screen items-center overflow-x-hidden  bg-secondary flex-col">
-      <header className="w-full flex items-center justify-between py-4 px-6 shadow-md gap-4 bg-card">
+    <div className="flex h-screen w-screen items-center overflow-x-hidden bg-secondary flex-col">
+      <header className="sticky top-0 w-full flex items-center justify-between py-4 px-6 shadow-md gap-4 bg-card z-10">
         <div className="flex items-center gap-4">
           <CryptoLogo size={32} />
           <span className="text-accent-foreground font-extrabold text-lg italic">

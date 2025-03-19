@@ -88,6 +88,7 @@ export default function FormBuilder() {
             type="email"
             value={formState[parsedKey] || ''}
             onChange={onChange}
+            className="max-[410px]:w-auto"
           />
         )
       case 'number':
@@ -97,6 +98,7 @@ export default function FormBuilder() {
             type="number"
             value={formState[parsedKey] || ''}
             onChange={onChange}
+            className="max-[410px]:w-auto"
           />
         )
       case 'checkbox':
@@ -118,6 +120,7 @@ export default function FormBuilder() {
             type="text"
             value={formState[parsedKey] || ''}
             onChange={onChange}
+            className="max-[410px]:w-auto"
           />
         )
     }
@@ -176,7 +179,7 @@ export default function FormBuilder() {
       <div className="w-full flex flex-col justify-center gap-8 md:flex-row">
         <Card className="border shadow-sm w-full">
           <CardHeader className="border-b bg-muted/40 px-5 py-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between max-sm:flex-col gap-4 max-sm:items-start">
               <CardTitle className="text-xl font-bold">Custom Form</CardTitle>
               <div className="flex items-center gap-2">
                 <Sheet>
@@ -195,7 +198,7 @@ export default function FormBuilder() {
             </div>
           </CardHeader>
           <CardContent className="px-6">
-            <form className="w-full grid grid-cols-12 gap-6 shadow-md rounded-md border border-border bg-background p-6">
+            <form className=" grid grid-cols-12 gap-6 shadow-md rounded-md border border-border bg-background p-6">
               {jsonData.fields.map((field, index) => {
                 // @ts-ignore
                 const error = errors[field.label.replace(' ', '').toLowerCase()]

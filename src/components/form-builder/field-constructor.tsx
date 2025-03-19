@@ -133,7 +133,7 @@ export default function FieldsConstructor({
               </div>
             </CardHeader>
             <CardContent className="p-0">
-              <ScrollArea className="h-[calc(100vh-20rem)] lg:h-[calc(100vh-38rem)] p-6">
+              <ScrollArea className="h-[calc(100dvh-20rem)] lg:h-[calc(100dvh-38rem)] p-6">
                 {isJsonView ? (
                   <JsonEditor
                     data={jsonData}

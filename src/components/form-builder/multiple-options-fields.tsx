@@ -71,7 +71,7 @@ export function DropDown({
 
   return (
     <Select onValueChange={onChange} defaultValue={value}>
-      <SelectTrigger className="w-full">
+      <SelectTrigger className="w-full max-[410px]:w-auto">
         <SelectValue placeholder="Select an option" defaultValue={value} />
       </SelectTrigger>
       <SelectContent>
